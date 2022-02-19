@@ -49,6 +49,15 @@ Currently, Data is stored for songs available and user log activities in two dir
 }
 ```
 
+## Entity Relationship Diagram of the Spakify Project
+
+ER Diagram of the database for better understanding of the database implemented.
+
+<p align="center">
+<img src="https://github.com/ashishp98/data-engineering-nanodegree-data-modelling-with-postgres/blob/main/images/Data_Engineering_Postgres_ERD.png"  >
+</p>
+
+
 ## Database Schema
 
 ### Fact Table
