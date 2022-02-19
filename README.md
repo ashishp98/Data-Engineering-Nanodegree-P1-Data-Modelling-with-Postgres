@@ -70,7 +70,7 @@ Records in log data associated with user song plays.
 | user_agent   | varchar                | not null |
 
 <p align="center">
-<img src="images/songplay_table.png"  >
+<img src="./images/songplay_table.png"  >
 </p>
     
 ### Dimensions Table
@@ -88,7 +88,7 @@ Users of the sparkify
 | level      | varchar           | not null |
     
 <p align="center">
-<img src="images/user_table.png">
+<img src="./images/user_table.png">
 </p>
  
 #### `song_table`
@@ -104,7 +104,7 @@ Songs in sparkify database.
 | duration  | float              | not null |
 
 <p align="center">
-<img src="images/song_table.png">
+<img src="./images/song_table.png">
 </p>
     
 #### `artist_table`
@@ -120,7 +120,7 @@ Artists in sparkify database.
 | longitude | float             |          |
     
 <p align="center">
-<img src="images/artist_table.png">
+<img src="./images/artist_table.png">
 </p>
  
 Primary key: artist_id
@@ -140,7 +140,7 @@ Timestamps of records in songplays broken down into specific time units.
 | weekday    | int                      | not null |
     
 <p align="center">
-<img src="images/time_table.png">
+<img src="./images/time_table.png">
 </p>
  
 ## Running
