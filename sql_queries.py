@@ -1,6 +1,6 @@
 # DROP TABLES
 
-songplay_table_drop = "DROP TABLE IF EXISTS songplay"
+songplay_table_drop = "DROP TABLE IF EXISTS songplay_table"
 user_table_drop = "DROP TABLE IF EXISTS user_table"
 song_table_drop = "DROP TABLE IF EXISTS song_table"
 artist_table_drop = "DROP TABLE IF EXISTS artist_table"
@@ -11,39 +11,39 @@ time_table_drop = "DROP TABLE IF EXISTS time_table"
 songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplay_table(
     songplay_id SERIAL PRIMARY KEY,
-    start_time TIMESTAMP,
-    user_id INT, 
-    level VARCHAR,
+    start_time TIMESTAMP NOT NULL,
+    user_id INT NOT NULL, 
+    level VARCHAR NOT NULL,
     song_id VARCHAR, 
     artist_id VARCHAR, 
-    session_id INT, 
-    location VARCHAR, 
-    user_agent VARCHAR)
+    session_id INT NOT NULL, 
+    location VARCHAR NOT NULL, 
+    user_agent VARCHAR NOT NULL)
 """)
 
 user_table_create = ("""
 CREATE TABLE IF NOT EXISTS user_table(
     user_id INT PRIMARY KEY, 
-    first_name VARCHAR, 
-    last_name VARCHAR, 
-    gender CHAR, 
-    level VARCHAR)
+    first_name VARCHAR NOT NULL, 
+    last_name VARCHAR NOT NULL, 
+    gender CHAR(1) NOT NULL, 
+    level VARCHAR NOT NULL)
 """)
 
 song_table_create = ("""
 CREATE TABLE IF NOT EXISTS song_table(
     song_id VARCHAR PRIMARY KEY, 
-    title VARCHAR, 
-    artist_id VARCHAR, 
-    year INT, 
-    duration FLOAT)
+    title VARCHAR NOT NULL, 
+    artist_id VARCHAR NOT NULL, 
+    year INT NOT NULL, 
+    duration FLOAT NOT NULL)
 """)
 
 artist_table_create = ("""
 CREATE TABLE IF NOT EXISTS artist_table(
     artist_id VARCHAR PRIMARY KEY, 
-    name VARCHAR, 
-    location VARCHAR, 
+    name VARCHAR NOT NULL, 
+    location VARCHAR NOT NULL, 
     latitude FLOAT, 
     longitude FLOAT)
 """)
@@ -51,12 +51,12 @@ CREATE TABLE IF NOT EXISTS artist_table(
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time_table(
     start_time TIMESTAMP PRIMARY KEY, 
-    hour INT, 
-    day INT, 
-    week INT, 
-    month INT, 
-    year INT, 
-    weekday INT)
+    hour INT NOT NULL, 
+    day INT NOT NULL, 
+    week INT NOT NULL, 
+    month INT NOT NULL, 
+    year INT NOT NULL, 
+    weekday INT NOT NULL)
 """)
 
 # INSERT RECORDS

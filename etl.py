@@ -6,7 +6,25 @@ from sql_queries import *
 import numpy as np
 
 
+
 def process_song_file(cur, filepath):
+    
+    """
+    Process songs files and insert records into the Postgres database.
+    the function takes both the established cursor(cur) to the database and
+    filepath to the log file (filepath)
+
+    Parameters
+    ----------
+    cur : 
+        Database cursor reference
+    conn:
+        Database connection reference
+    filepath : string
+        The file system path to a song files
+
+    """
+    
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -22,8 +40,25 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    
+    """
+    Process logs files and insert records into the Postgres database.
+    the function takes both the established cursor(cur) to the database and
+    filepath to the log file (filepath)
+
+    Parameters
+    ----------
+    cur : 
+        Database cursor reference
+    conn:
+        Database connection reference
+    filepath : string
+        The file system path to a log files
+
+    """
+    
     # open log file
-    df = df = pd.read_json(filepath, lines=True)
+    df = pd.read_json(filepath, lines=True)
 
     # filter by NextSong action
     df = df[df["page"] == "NextSong"]
@@ -64,6 +99,24 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    
+    """
+    Gets all files matching extension from directory filepath
+    Prints the total number of files found there
+    Iterate over each files and process them
+    
+    Parameters
+    ----------
+    cur : 
+        Database cursor reference
+    conn:
+        Database connection reference
+    filepath : string
+        The file system path to a log files
+    func:
+        The function name with which we want to process files
+    """
+    
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -83,6 +136,21 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    
+    """
+    This is the main function of the pipeline.
+
+    Variables
+    ----------
+    cur : 
+        Database cursor reference
+    conn:
+        Database connection reference
+    filepath : string
+        The file system path to a song files and log files
+
+    """
+    
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
 
